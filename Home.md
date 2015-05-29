@@ -1,1 +1,7 @@
-Welcome to the astrix wiki!
+# Astrix Tutorial
+The tutorial is a step-by-step guide to getting started with Astrix. Fully working code examples developed in the tutorial are located in the [tutorial](../../tree/master/tutorial) folder. 
+
+### Index
+[1. The IOC Container](The-IOC-Container.md)  
+[2. Service Binding](Service-Discovery-and-Service-Binding.md)  
+[3. The Service Registry](part3.md)  
