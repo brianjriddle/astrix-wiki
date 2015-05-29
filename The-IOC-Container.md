@@ -277,4 +277,4 @@ public class MockingAstrixBeansTest {
 ```
 In the example we are using a `TestAstrixConfigurer` instead of the normal `AstrixConfigurer`. A `TestAstrixConfigurer` uses `AstrixConfigurer` behind the scenes, but it creates a configuration suitable for unit testing. It also exposes some functionality not available using the regular `AstrixConfigurer` api, and disables `ApiProvider` scanning. Therefore we programmatically register an `ApiProvider` for the api we intend to test. In the example the api under test depends on another astrix-bean in another api, the `LunchRestaurantFinder`. The `TestAstrixConfigurer.registerAstrixBean` allows us to register a mock for that astrix-bean in the test. Since the creation of a AstrixContext is very fast and we stubbed out the single service dependency, this test will run at "unit test" speed.
 
-[Next: Part 2 - Service Binding](part2.md)  
+[Next: Service Discovery and Service Binding](Service-Discovery-and-Service-Binding)    
