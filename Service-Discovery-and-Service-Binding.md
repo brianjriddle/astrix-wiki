@@ -88,7 +88,7 @@ When we configure Astrix we provide a setting, `"restaurantFinderUri"` with a va
 
 
 ### Configuration
-The previous example uses the configuration mechanism to discover ServiceProperties required to bind to `LunchRestaurantFinder`. Astrixs ships with a small standalone configuration framework called `DynamicConfig`. A configuration property is resolved in the following order:
+The previous example uses the configuration mechanism to discover the ServiceProperties required to bind to `LunchRestaurantFinder`. Astrix ships with a small standalone configuration framework called [DynamicConfig](https://github.com/AvanzaBank/astrix/tree/master/astrix-config). A configuration property is resolved in the following order:
 
 1. Custom ConfigurationSource's
 2. System properties
