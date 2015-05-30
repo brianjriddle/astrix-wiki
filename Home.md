@@ -1,4 +1,4 @@
-# Astrix Tutorial
+### Tutorial
 The tutorial is a step-by-step guide to getting started with Astrix. Fully working code examples developed in the tutorial are located in the [tutorial](../../tree/master/tutorial) folder. 
 
 ### Documentation
