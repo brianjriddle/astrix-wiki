@@ -1,4 +1,4 @@
-This is a step by step tutorial that show how to provide a simple service using Astrix and GigaSpaces. A complete example is located in the examples folder.
+This is a step by step tutorial that show how to provide a simple service using Astrix and GigaSpaces. A complete example will soon be located in the examples folder.
 
 Astrix uses a declarative programming model where the programmer typically uses annotations to express thing such as:
 
@@ -50,7 +50,7 @@ The __service registry__ is an application that allows applications to register 
 
 
 ### trading-pu
-The last module is the server, in this case in the form of a GigaSpaces processing unit. An Astrix server is defined by a `ApplicationDescriptor`. For the trading-pu it looks like this:
+The last module is the server, in this case in the form of a GigaSpaces processing unit. An Astrix server is defined by an `ApplicationDescriptor`. For the trading-pu it looks like this:
 
 ```java
 @AstrixApplication(
@@ -63,7 +63,7 @@ public class TradingApplicationDescriptor {
 
 The `TradingApplicationDescriptor` defines two things:
 
-1. That the given server provdes remote services for each service defined in `TradingServiceApiProvider`
+1. That the given server provides remote services for each service defined in `TradingServiceApiProvider`
 2. That the default mechanism to export a service is Astrix remoting using GigaSpaces as transport.
 
 > An `ApplicationDescriptor` can be seen as the server side counterpart to an `ApiProvider`. While an `ApiProvider` defines what beans are part of an api and how instances of these are created, an `ApplicationDescriptor` defines what services a server provides, and how these can be invoked.
@@ -81,7 +81,7 @@ public class AccountServiceImpl implements AccountService {
 
 During startup of the trading-pu Astrix will register with the service registry, announcing that it provides `AccountService` using "GS_REMOTING". Astrix scans all spring beans on startup and collects `@AstrixServiceExport` annotated beans. These beans will be used at runtime to dispatch incoming service invocation to the corresponding service implementation.
 
-The last piece in the puzzle exists in `pu.xml` (the spring application context configuration file). The spring bean `AstrixFrameworkBean` laods the Astrix framework. The `applicationDescriptor` property identifies that the current application is a server. When that property is set the server part of the framework will be loaded and all services defined in `TradingApplicationDescriptor` will be provided. For the trading-pu Astrix will start a background thread that periodically registers the server in the service registry, and load all classes required to export the provided service using the defined `ServiceComponent`.
+The last piece in the puzzle exists in `pu.xml` (the spring application context configuration file). The spring bean `AstrixFrameworkBean` loads the Astrix framework. The `applicationDescriptor` property identifies that the current application is a server. When that property is set the server part of the framework will be loaded and all services defined in `TradingApplicationDescriptor` will be provided. For the trading-pu Astrix will start a background thread that periodically registers the server in the service registry, and load all classes required to export the provided service using the defined `ServiceComponent`.
 
 ### pu.xml
 ```xml
@@ -109,7 +109,7 @@ The last piece in the puzzle exists in `pu.xml` (the spring application context 
 ```
 
 ### Consuming the Trading API
-Each client that want to consume the Trading API has to create an `AstrixContext` and use it as a factory to create instances of the beans that is part of the api. There are two ways to create an `AstrixContext`. The first one is to use an `AstrixFrameworkBean` as in the pu.xml above, which will create an register an `AstrixContext` in the current spring application context. The other option, most used in unittesting, is to create the context using an `AstrixConfigurer`:
+Each client that want to consume the Trading API has to create an `AstrixContext` and use it as a factory to create instances of the beans that is part of the api. There are two ways to create an `AstrixContext`. The first one is to use an `AstrixFrameworkBean` as in the pu.xml above, which will create an register an `AstrixContext` in the current spring application context. The other option, most used in unit testing, is to create the context using an `AstrixConfigurer`:
 
 ```java
 AstrixConfigurer configurer = new AstrixConfigurer();
