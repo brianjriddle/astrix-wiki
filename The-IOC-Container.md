@@ -1,4 +1,3 @@
-# Part 1 - The IOC container
 One of the cornerstones in the design philosophy of Astrix is that Astrix manages the creation and lifecycle of every element that is part of a published api. In this context, a published api is something that is intended to be reused by many different applications within an organization, and often backed by one or more microservices. The api is typically maintained by a single team, and consumed by applications maintained by many other teams. Astrix has similarities with other IOC frameworks like Spring or Guice. However, Astrix is not intended to be used as a standalone IOC-container. Rather Astrix complements another IOC-container acting as a factory to create types that is part of a published api, whereas the other IOC-framework is responsible for wiring all application-beans, some of which are api-beans created by astrix, and managing their lifecycle.
 
 #### Why two IOC-containers?
