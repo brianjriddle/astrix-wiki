@@ -1,4 +1,4 @@
-This is a step by step tutorial that show how to provide a simple service using Astrix and GigaSpaces. A complete example is located in the [examples folder](https://github.com/AvanzaBank/astrix/tree/master/tutorial/trading-api-parent).
+This is a step by step tutorial that show how to provide a simple service using Astrix and GigaSpaces. A complete example is located in the [tutorial folder](https://github.com/AvanzaBank/astrix/tree/master/tutorial/trading-api-parent).
 
 Astrix uses a declarative programming model where the programmer typically uses annotations to express thing such as:
 
