@@ -109,7 +109,7 @@ The last piece in the puzzle exists in `pu.xml` (the spring application context 
 ```
 
 ### Consuming the Trading API
-Each client that want to consume the Trading API has to create an `AstrixContext` and use it as a factory to create instances of the beans that is part of the api. There are two ways to create an `AstrixContext`. The first one is to use an `AstrixFrameworkBean` as in the pu.xml above, which will create an register an `AstrixContext` in the current spring application context. The other option, most used in unit testing, is to create the context using an `AstrixConfigurer`:
+Each client that want to consume the Trading API has to create an `AstrixContext` and use it as a factory to create instances of the beans that are part of the api. There are two ways to create an `AstrixContext`. The first one is to use an `AstrixFrameworkBean` as in the pu.xml above, which will create an register an `AstrixContext` in the current spring application context. The other option, most used in unit testing, is to create the context using an `AstrixConfigurer`:
 
 ```java
 AstrixConfigurer configurer = new AstrixConfigurer();
@@ -119,7 +119,12 @@ AstrixContext context = configurer.configure();
 AccountService accountService = context.getBean(AccountService.class);
 ```
 
-Astrix allows for a lot of configuration, see the `AstrixSettings` class. In practice you always have to define where the service registry is located by setting the `AstrixSettings.SERVICE_REGISTRY_URI`, see https://github.com/AvanzaBank/astrix/wiki/Service-Discovery-and-Service-Binding for more information about serviceUri's.
+Astrix allows for a lot of configuration, see the `AstrixSettings` class. In practice you always have to define where the service registry is located by setting the `AstrixSettings.SERVICE_REGISTRY_URI`, see [Service Discovery and Service Binding](https://github.com/AvanzaBank/astrix/wiki/Service-Discovery-and-Service-Binding) for more information about serviceUri's. Also, in order for Astrix to find the `TradingServiceApiProvider` it must be configured to scan the appropriate part of the classpath. The recommended way to configure this is to  to create an `META-INF/astrix/settings.properties` and put it in a common shared jar:
+
+### META-INF/astrix/settings.properties
+```properties
+AstrixApiProviderScanner.basePackage=se.avanzabank
+```
 
 Thats it, now you now the mechanics for providing and consuming a service using Astrix.
 
