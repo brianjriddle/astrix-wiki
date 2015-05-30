@@ -1,4 +1,3 @@
-# Part 2 - Service Binding
 The first part of the tutorial introduced how libraries can be published and consumed using Astrix. This part introduces another type of api, the heart of all service based architectures, namely the service.
 
 In this context, a service is something that is typically provided by a different process. In order to consume a service, Astrix must first bind to the service which is done using an `ServiceComponent`. The `ServiceComponent` interface is the extension point to implement new service-transports in Astrix. As api-developer or consumer you never use the `ServiceComponent` directly. Rather it is used behind the scenes by Astrix to bind to a provider of a given service. However, even if you don't intend to implement you own service-component it's good to have knowledge about the inner workings of service binding.  
