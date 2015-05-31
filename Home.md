@@ -1,5 +1,5 @@
 ### Tutorial
-The tutorial is a step-by-step guide to getting started with Astrix. 
+The [tutorial](Providing-A-Service-Using-Astrix-And-GigaSpaces) is a step-by-step guide to getting started with Astrix. 
 
 ### Documentation
 Fully working code examples referred to in the documentation are located in the [doc-snippets](https://github.com/AvanzaBank/astrix/tree/master/doc-snippets) folder.
