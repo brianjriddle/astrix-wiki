@@ -41,7 +41,7 @@ public interface TradingServiceApiProvider {
 
 The `@AstrixApiProvider` annotation identifies an `ApiProvider`. Astrix uses classpath scanning to find all `ApiProvider's` on the classpath. 
 
-`TradingServicApiProvider` exports `AccountServcie` by defining a method with `AccountService` as return type and annotating it with `@Service`, which tells Astrix how to __bind__ to an instance of the given bean:
+`TradingServicApiProvider` exports `AccountService` by defining a method with `AccountService` as return type and annotating it with `@Service`, which tells Astrix how to __bind__ to an instance of the given bean:
 
 1. Discover the service using the service registry
 2. Use information from service discovery to bind to the service
