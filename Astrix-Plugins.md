@@ -9,7 +9,7 @@ Astrix provides a number of extension points, where some of the more important a
 This part describes how you plug-in your custom extensions into Astrix at runtime.
 
 A plugin is created by implementing the `AstrixContextPlugin` interface. It contains one non-default method: 
-```
+```java
 public interface AstrixContextPluign {
 	void prepare(ModuleContext moduleContext);
 }
