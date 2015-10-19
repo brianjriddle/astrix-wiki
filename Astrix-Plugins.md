@@ -1,3 +1,5 @@
+> This is an early draft
+
 Astrix provides a number of extension points.
 
 * ServiceComponent
