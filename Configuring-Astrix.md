@@ -20,3 +20,5 @@ BEAN_BIND_ATTEMPT_INTERVAL  | 10 000        | The intervall (in milliseconds) be
 
 
 ### AstrixBeanSettings
+
+### Overriding Default AstrixBeanSettings (@DefaultBeanSettings)
