@@ -18,9 +18,9 @@ Astrix applies two different types of protection using either `HystrixCommand` o
 Astrix may treat a bean invocation as "reactive" depending on the return type of the invoked method. All methods returning a `java.util.concurrent.CompletableFuture`, `rx.Observable` and `com.gigaspaces.async.AsyncFuture` are treated as reactive by default. Its possible to extends the reactive type handling to include more types by implementing a `ReactiveTypeHandlerPlugin`.
 
 ### Configuration
-Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix cant change the values of the Hystrix settings. Rather such settings are updated using Archauis, see the Hystrix documentation on configuration for details (https://github.com/Netflix/Hystrix/wiki/Configuration).
+Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix cant change the values of the Hystrix settings. Rather such settings are updated using Archaius, see the `Hystrix` documentation on configuration for details (https://github.com/Netflix/Hystrix/wiki/Configuration).
 
-### AstrixBeanSettings
+### AstrixBeanSettings related to fault tolerance
 AstrixBeanSetting           | Default Value | Description 
 :-------------------------- | -------------:|:--------------
 INITIAL_TIMEOUT  | 1000 [ms]        | The initial timeout
@@ -29,7 +29,7 @@ INITIAL_CORE_SIZE  | 10 | Defines the default "coreSize" when thread isolation i
 INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD  | 10 |  Defines the default "queueSizeRejectionThreshold" for the queue when thread isolation is used to protect invocations to the associated bean, i.e. number of pending service invocations allowed in the queue to a thread-pool (bulkhead) before starting to reject invocations.
 
 ### Overriding DefaultBeanSettings in service definition
-The default settings in the table above might be overriden in the bean definition for individul Astrix beans by using the `@DefaultBeanSettings`, see the javadoc for `DefaultBeanSettings`.
+The default settings in the table above might be overriden in the bean definition for an individual Astrix bean by using the `@DefaultBeanSettings` annotation, see the javadoc for `DefaultBeanSettings`.
 
 
 
