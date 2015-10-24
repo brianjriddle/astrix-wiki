@@ -11,6 +11,7 @@ Fully working code examples referred to in the documentation are located in the 
 [1. The IOC Container](The-IOC-Container)  
 [2. Service Discovery and Service Binding](Service-Discovery-and-Service-Binding)  
 [4. Configuring Astrix](Configuring-Astrix)  
-[5. Extending Astrix](Astrix-Plugins) 
+[5. Extending Astrix](Astrix-Plugins)
+[6. Bean Fault Tolerance](Bean-Fault-Tolerance) 
 
  
