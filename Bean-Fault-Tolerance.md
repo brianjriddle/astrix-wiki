@@ -1,10 +1,10 @@
 > This is a draft
 
-Astrix includes a fault-tolerance layer implemented on top of Hystrix. Astrix protects all invocations to a service-bean by default, and libraries might be protected by explicitly marking the bean definition with @AstrixFaultToleranceProxy.
+Astrix includes a fault-tolerance layer implemented on top of Hystrix which can be used to protect invocations to an Astrix bean with fault tolerance. Astrix protects all invocations to a service-bean by default, and libraries might be protected by explicitly marking the bean definition with @AstrixFaultToleranceProxy.
 
 ![Design FaultToleranceProxy](images/bean-fault-tolerance-design.png)
 
-The mapping between a Astrix bean, and the name of the Hystrix command used to protect the invocation, is resolved using a HystrixCommandNamingStrategy. The HystrixCommandNamingStrategy allows users of the framework to implement whatever Hystrix naming scheme they prefer for their Astrix beans, see "Extending Astrix" for information about how to apply a custom strategy.
+The mapping between an Astrix bean, and the name of the `HystrixCommand` used to protect the invocation, is resolved using a `HystrixCommandNamingStrategy`. The `HystrixCommandNamingStrategy` allows users of the framework to implement whatever `HystrixCommand` naming scheme they prefer for their Astrix beans, see "Extending Astrix" for information about how to apply a custom strategy.
 
 ```java
 interface HystrixCommandNamingStrategy {
@@ -12,7 +12,7 @@ interface HystrixCommandNamingStrategy {
 	String getGroupKeyName(PublishedAstrixBean<?> beanDefinition);
 }
 ```
-Astrix applies two different types of proction using either HystrixCommand or HystrixObservableCommand. Synchronous invocations will be protected by a regular HystrixCommand using a thread-pool for isolation, see HystrixCommandSettings for default values. For reactive service invocations, see xxx, Astrix uses a HystrixObservableCommand and semaphores to protect the service invocation.
+Astrix applies two different types of protection using either HystrixCommand or HystrixObservableCommand. Synchronous invocations will be protected by a regular HystrixCommand using a thread-pool for isolation, see HystrixCommandSettings for default values. For reactive service invocations, see xxx, Astrix uses a HystrixObservableCommand and semaphores to protect the service invocation.
 
 ### Configuration
 Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix cant change the values of the Hystrix settings. Rather such settings are updated using Archauis, see the Hystrix documentation on configuration for details (https://github.com/Netflix/Hystrix/wiki/Configuration).

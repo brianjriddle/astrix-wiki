@@ -8,6 +8,9 @@ Astrix provides a number of extension points, where some of the more important a
 
 This part describes how you plug-in your custom extensions into Astrix at runtime.
 
+### Plugins vs Strategies
+Astrix allows for two different types of extensions, plugins and strategy. Put simply, there might be an arbritrary number of a given plugin type (for instance `ServiceComponent` plugins), as opposed to a strategy where Astrix assumes exactly one instance at runtime. 
+
 ### Implementing a plugin
 A plugin is created by implementing the `AstrixContextPlugin` interface. It contains one non-default method: 
 ```java
@@ -48,3 +51,25 @@ Astrix uses the java [ServiceLoader](https://docs.oracle.com/javase/8/docs/api/j
 ```
 com.mycorp.astrix.ext.CustomRemotingModule
 ```
+
+
+### Implementing a Stratgey
+```java
+@MetaInfServices(AstrixContextPlugin.class)
+public class MyCustomHystrixCommandNamingStrategy implements AstrixContextPlugin {
+	
+	@Override
+	public void registerStrategies(AstrixStrategiesConfig strategiesConfig) {
+		strategiesConfig.registerStrategy(HystrixCommandNamingStrategy.class, MyCustomHystrixCommandNamingStrategy.class);
+	}
+	
+	@Override
+	public void prepare(ModuleContext moduleContext) {
+	}
+}
+```
+
+### Loading a Strategy
+Strategies are loaded in the same way as a plugin.
+
+
