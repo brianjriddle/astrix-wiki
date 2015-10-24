@@ -2,7 +2,7 @@
 
 Astrix includes a fault-tolerance layer implemented on top of Hystrix. Astrix protects all invocations to a service-bean by default, and libraries might be protected by explicitly marking the bean definition with @AstrixFaultToleranceProxy.
 
-![Design FaultToleranceProxy](images/fault-tolerance-design.svg)
+![Design FaultToleranceProxy](images/bean-fault-tolerance-design.png)
 
 The mapping between a Astrix bean, and the name of the Hystrix command used to protect the invocation, is resolved using a HystrixCommandNamingStrategy. The HystrixCommandNamingStrategy allows users of the framework to implement whatever Hystrix naming scheme they prefer for their Astrix beans, see "Extending Astrix" for information about how to apply a custom strategy.
 
