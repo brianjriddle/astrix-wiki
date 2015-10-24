@@ -1,6 +1,6 @@
 > This is a draft
 
-Astrix includes a fault-tolerance layer implemented on top of Hystrix which can be used to protect invocations to an Astrix bean with fault tolerance. Astrix protects all invocations to a service-bean by default, and libraries might be protected by explicitly annotating the bean definition with @AstrixFaultToleranceProxy.
+Astrix includes a fault-tolerance layer implemented on top of [Hystrix](https://github.com/Netflix/Hystrix) which can be used to protect invocations to an Astrix bean with fault tolerance. Astrix protects all invocations to a service-bean by default, and libraries might be protected by explicitly annotating the bean definition with @AstrixFaultToleranceProxy.
 
 ![Design FaultToleranceProxy](images/bean-fault-tolerance-design.png)
 
@@ -18,7 +18,7 @@ Astrix applies two different types of protection using either `HystrixCommand` o
 Astrix may treat a bean invocation as "reactive" depending on the return type of the invoked method. All methods returning a `java.util.concurrent.CompletableFuture`, `rx.Observable` and `com.gigaspaces.async.AsyncFuture` are treated as reactive by default. Its possible to extends the reactive type handling to include more types by implementing a `ReactiveTypeHandlerPlugin`.
 
 ### Configuration
-Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix cant change the values of the Hystrix settings. Rather such settings are updated using Archaius, see the `Hystrix` documentation on configuration for details (https://github.com/Netflix/Hystrix/wiki/Configuration).
+Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix cant change the values of the Hystrix settings. Rather such settings are updated using Archaius, see the [Hystrix documentation on configuration](https://github.com/Netflix/Hystrix/wiki/Configuration) for details.
 
 ### AstrixBeanSettings related to fault tolerance
 AstrixBeanSetting           | Default Value | Description 
@@ -30,6 +30,5 @@ INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD  | 10 |  Defines the default "queueSizeRe
 
 ### Overriding DefaultBeanSettings in service definition
 The default settings in the table above might be overriden in the bean definition for an individual Astrix bean by using the `@DefaultBeanSettings` annotation, see the javadoc for `DefaultBeanSettings`.
-
 
 
