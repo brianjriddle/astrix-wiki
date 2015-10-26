@@ -29,7 +29,7 @@ INITIAL_CORE_SIZE (astrix.bean.[beanKey].faultTolerance.initialMaxConcurrentRequ
 INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD  (astrix.bean.[beanKey].faultTolerance.initialCoreSize) | 10 |  Defines the initial "queueSizeRejectionThreshold" for the queue when thread isolation is used to protect invocations to the associated bean, i.e. number of pending service invocations allowed in the queue to a thread-pool (bulkhead) before starting to reject invocations.
 
 ### Enabling/disabling fault tolerance at runtime
-Fault tolerance may be enabled/disabled at runtime for all beans, or individual beans, in a `AstrixContext`. In order for a bean invocation to be protected by a fault-tolerance proxy, fault tolerance bust be enabled both globally and for the individual bean using theese settings:
+Fault tolerance may be enabled/disabled at runtime for all beans, or individual beans, in a `AstrixContext`. In order for a bean invocation to be protected by a fault-tolerance proxy, fault tolerance bust be enabled both globally and for the individual bean using these settings:
 
 ### AstrixBeanSettings
 AstrixBeanSetting                       | Default Value    | Description 
