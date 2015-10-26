@@ -42,6 +42,6 @@ AstrixSetting                           | Default Value    | Description
 ENABLE_FAULT_TOLERANCE (AstrixContext.enableFaultTolerance)| true             | Globally disables/enables the fault tolerance proxy for all beans in the associated `AstrixContext`
 
 ### Overriding DefaultBeanSettings in service definition
-The default settings in the table above might be overriden in the bean definition for an individual Astrix bean by using the `@DefaultBeanSettings` annotation, see the javadoc for `DefaultBeanSettings`.
+The default settings in all tables above might be overriden in the bean definition for an individual Astrix bean by using the `@DefaultBeanSettings` annotation, see the javadoc for `DefaultBeanSettings`.
 
 
