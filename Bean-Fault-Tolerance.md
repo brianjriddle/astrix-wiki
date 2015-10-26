@@ -18,15 +18,28 @@ Astrix applies two different types of protection using either `HystrixCommand` o
 Astrix may treat a bean invocation as "reactive" depending on the return type of the invoked method. All methods returning a `java.util.concurrent.CompletableFuture`, `rx.Observable` and `com.gigaspaces.async.AsyncFuture` are treated as reactive by default. Its possible to extends the reactive type handling to include more types by implementing a `ReactiveTypeHandlerPlugin`.
 
 ### Configuration
-Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix cant change the values of the Hystrix settings. Rather such settings are updated using Archaius, see the [Hystrix documentation on configuration](https://github.com/Netflix/Hystrix/wiki/Configuration) for details.
+Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix can't change the values of the Hystrix settings. Rather such settings are updated using Archaius, see the [Hystrix documentation on configuration](https://github.com/Netflix/Hystrix/wiki/Configuration) for details. Astrix uses a `MaxQueueSize` of 1 000 000 when protecting a service invocation with a `HystrixCommand` to ensure that the INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD bean setting have the desired effect. 
 
-### AstrixBeanSettings related to fault tolerance
-AstrixBeanSetting           | Default Value | Description 
-:-------------------------- | -------------:|:--------------
-INITIAL_TIMEOUT  | 1000 [ms]        | The initial timeout
-INITIAL_MAX_CONCURRENT_REQUESTS  | 20 | Defines the default "maxConcurrentRequests" when semaphore isolation is used to protect invocations to the associated bean, i.e. the maximum number of concurrent requests before the fault-tolerance layer starts rejecting invocations
-INITIAL_CORE_SIZE  | 10 | Defines the default "coreSize" when thread isolation is used to protect invocations to the associated bean, i.e. the number of threads in the bulkhead associated with a synchronous service invocation.
-INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD  | 10 |  Defines the default "queueSizeRejectionThreshold" for the queue when thread isolation is used to protect invocations to the associated bean, i.e. number of pending service invocations allowed in the queue to a thread-pool (bulkhead) before starting to reject invocations.
+### AstrixBeanSettings related to Hystrix configuration
+AstrixBeanSetting                       | Default Value    | Description 
+:-------------------------------------- | ----------------:|:--------------
+INITIAL_TIMEOUT (astrix.bean.[beanKey].faultTolerance.timeout) | 1000 [ms]        | The initial timeout used when protecting a bean invocation with Hystrix
+INITIAL_MAX_CONCURRENT_REQUESTS (astrix.bean.[beanKey].faultTolerance.enabled) | 20               | Defines the initial "maxConcurrentRequests" when semaphore isolation is used to protect invocations to the associated bean, i.e. the maximum number of concurrent requests before the fault-tolerance layer starts rejecting invocations
+INITIAL_CORE_SIZE (astrix.bean.[beanKey].faultTolerance.initialMaxConcurrentRequests) | 10               | Defines the initial "coreSize" when thread isolation is used to protect invocations to the associated bean, i.e. the number of threads in the bulkhead associated with a synchronous service invocation.
+INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD  (astrix.bean.[beanKey].faultTolerance.initialCoreSize) | 10 |  Defines the initial "queueSizeRejectionThreshold" for the queue when thread isolation is used to protect invocations to the associated bean, i.e. number of pending service invocations allowed in the queue to a thread-pool (bulkhead) before starting to reject invocations.
+
+### Enabling/disabling fault-tolerance at runtime
+Fault tolerance may be enabled/disabled at runtime for all beans, or individual beans, in a `AstrixContext`. In order for a bean invocation to be protected by a fault-tolerance proxy, fault tolerance bust be enabled both globally and for the individual bean using theese settings:
+
+### AstrixBeanSettings
+AstrixBeanSetting                       | Default Value    | Description 
+:-------------------------------------- | ----------------:|:--------------
+FAULT_TOLERANCE_ENABLED  (astrix.bean.[beanKey].faultTolerance.enabled) | true             | Determines whether invocations on the associated bean should be protected by fault tolerance. Applies to all service beans, and also to library beans whose definition are annotated with `@AstrixFaultToleranceProxy`.
+
+### AstrixSettings
+AstrixSetting                           | Default Value    | Description 
+:-------------------------------------- | ----------------:|:--------------
+ENABLE_FAULT_TOLERANCE (AstrixContext.enableFaultTolerance)| true             | Globally disables/enables the fault tolerance proxy for all beans in the associated `AstrixContext`
 
 ### Overriding DefaultBeanSettings in service definition
 The default settings in the table above might be overriden in the bean definition for an individual Astrix bean by using the `@DefaultBeanSettings` annotation, see the javadoc for `DefaultBeanSettings`.
