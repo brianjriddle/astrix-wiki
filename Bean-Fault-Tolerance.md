@@ -18,7 +18,7 @@ Astrix applies two different types of protection using either `HystrixCommand` o
 Astrix may treat a bean invocation as "reactive" depending on the return type of the invoked method. All methods returning a `java.util.concurrent.CompletableFuture`, `rx.Observable` and `com.gigaspaces.async.AsyncFuture` are treated as reactive by default. Its possible to extends the reactive type handling to include more types by implementing a `ReactiveTypeHandlerPlugin`.
 
 ### Configuration
-Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix can't change the values of the Hystrix settings. Rather such settings are updated using Archaius, see the [Hystrix documentation on configuration](https://github.com/Netflix/Hystrix/wiki/Configuration) for details. Astrix uses a `MaxQueueSize` of 1 000 000 when protecting a service invocation with a `HystrixCommand` to ensure that the INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD bean setting have the desired effect. 
+Astrixs allows setting the initial values of many configuration parameters on the HystrixCommand. At runtime though, Astrix can't change the values of the Hystrix settings. Rather such settings are updated using Archaius, see the [Hystrix documentation on configuration](https://github.com/Netflix/Hystrix/wiki/Configuration) for details. Astrix always uses a `maxQueueSize` of 1 000 000 when protecting a service invocation with a `HystrixCommand` to ensure that the `queueSizeRejectionThreshold` configuration have the desired effect, see below for the initial value of the `queueSizeRejectionThreshold` property.
 
 ### AstrixBeanSettings related to Hystrix configuration
 AstrixBeanSetting                       | Default Value    | Description 
