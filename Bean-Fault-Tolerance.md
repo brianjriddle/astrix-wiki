@@ -31,12 +31,12 @@ INITIAL_QUEUE_SIZE_REJECTION_THRESHOLD  (astrix.bean.[beanKey].faultTolerance.in
 ### Enabling/disabling fault tolerance at runtime
 Fault tolerance may be enabled/disabled at runtime for all beans, or individual beans, in a `AstrixContext`. In order for a bean invocation to be protected by a fault-tolerance proxy, fault tolerance bust be enabled both globally and for the individual bean using these settings:
 
-### AstrixBeanSettings
+
 AstrixBeanSetting                       | Default Value    | Description 
 :-------------------------------------- | ----------------:|:--------------
 FAULT_TOLERANCE_ENABLED  (astrix.bean.[beanKey].faultTolerance.enabled) | true             | Determines whether invocations on the associated bean should be protected by fault tolerance. Applies to all service beans, and also to library beans whose definition are annotated with `@AstrixFaultToleranceProxy`.
 
-### AstrixSettings
+
 AstrixSetting                           | Default Value    | Description 
 :-------------------------------------- | ----------------:|:--------------
 ENABLE_FAULT_TOLERANCE (AstrixContext.enableFaultTolerance)| true             | Globally disables/enables the fault tolerance proxy for all beans in the associated `AstrixContext`
