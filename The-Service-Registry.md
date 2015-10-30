@@ -22,6 +22,21 @@ interface OrderValidation {
 
 
 ### Running a Service Registry
+Astrix ships with an implementation of a service registry implemented using GigaSpaces located in the `astrix-service-registry-pu` module.
+
+The module is not packaged as a [processing-unit](http://docs.gigaspaces.com/xap101/the-processing-unit-structure-and-configuration.html), so in order to deploy it use have to package it yourself. What your have to do is to create a module for your service-registry, and add a dependency to `astrix-service-registry-pu`. Inside the module your create a pu.xml with a single import:
+
+### Content of META-INF/services/pu.xml
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="classpath*:/META-INF/spring/service-registry-pu.xml" />
+</beans>
+```
+
+Package this application as a procssing-unit and you should be able to deploy it.
 
 
 
