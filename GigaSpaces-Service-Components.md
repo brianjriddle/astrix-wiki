@@ -7,7 +7,7 @@ The `astrix-gs` module includes three `ServiceComponent` implementations that ca
 * GS_LOCAL_VIEW
 
 
-Each servcie component uses the same service-properties, namely the url to the space exporting the service. Only the ServiceComponent name part differs:
+Each `ServiceComponent` uses the same service-properties, which is the url to the space exporting the service. Only the ServiceComponent name part differs as explained by this table:
 
 ServiceComponent | ServiceUri Format | Example ServiceUri
 :------------------ |:------------|:--------------
