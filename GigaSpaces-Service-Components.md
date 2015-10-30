@@ -1,4 +1,5 @@
 > This is a very early draft
+
 The `astrix-gs` modules inclused three `ServiceComponent` implementations that can be used to provide services implemented using `GigaSpaces`. 
 
 * GS
