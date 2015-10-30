@@ -20,8 +20,11 @@ interface OrderValidation {
 }
 ```
 
+### Configuring what service registry to use
+Astrix uses the configuration to discovery a provider for the service registry, see [Configuring Astrix] for more information. <p>
 
-### Running a Service Registry
+
+### Deploying a Service Registry
 Astrix ships with an implementation of a service registry based on GigaSpaces. This implementation is located in the `astrix-service-registry-pu` module.
 
 The module is not packaged as a [processing-unit](http://docs.gigaspaces.com/xap101/the-processing-unit-structure-and-configuration.html), so in order to deploy it you have to package it as a processing-unit yourself:
