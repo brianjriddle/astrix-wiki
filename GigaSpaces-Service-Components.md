@@ -9,8 +9,8 @@ The `astrix-gs` module includes three `ServiceComponent` implementations that ca
 
 Each `ServiceComponent` uses the same service-properties, which is the url to the space exporting the service. Only the ServiceComponent name part differs as explained by this table:
 
-ServiceComponent | ServiceUri Format | Example ServiceUri
+ServiceComponent  | ServiceUri Format | Example ServiceUri
 :------------------ |:------------|:--------------
-GS                  | gs:[spaceUrl] |  gs-remoting:jini://*/*/my-space?groups=myGroupName
-GS_REMOTING         | gs-remoting:[spaceUrl] |  gs-remoting:jini://*/*/my-space?groups=myGroupName
-GS_LOCAL_VIEW       | gs-local-view:[spaceUrl] |  gs-remoting:jini://*/*/my-space?groups=myGroupName
+gs            | gs:[spaceUrl]            |  gs-remoting:jini://*/*/my-space?groups=myGroupName
+gs-remoting   | gs-remoting:[spaceUrl]   |  gs-remoting:jini://*/*/my-space?groups=myGroupName
+gs-local-view | gs-local-view:[spaceUrl] |  gs-remoting:jini://*/*/my-space?groups=myGroupName
