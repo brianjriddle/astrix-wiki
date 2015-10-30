@@ -27,7 +27,7 @@ Astrix ships with an implementation of a service registry based on GigaSpaces. T
 The module is not packaged as a [processing-unit](http://docs.gigaspaces.com/xap101/the-processing-unit-structure-and-configuration.html), so in order to deploy it you have to package it as a processing-unit yourself:
 
 1. Create a module for your service-registry
-2. Add a dependency to `astrix-service-registry-pu3
+2. Add a dependency to `astrix-service-registry-pu`
 3. Inside the module create a META-INF/services/pu.xml with the content below:
 4. Package this application as a processing-unit and you should be able to deploy it.
 
