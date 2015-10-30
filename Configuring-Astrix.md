@@ -59,7 +59,7 @@ This is a list of the most common `AstrixSettings`
 
 AstrixSetting  | Default Value | Description 
 :------------------------------------------ | -------------:|:--------------
-BEAN_BIND_ATTEMPT_INTERVAL                  | 10 000        | The intervall (in milliseconds) between consecutive bind attemps when a ServicBeanInstance is in UNBOUND state
+BEAN_BIND_ATTEMPT_INTERVAL (StatefulAstrixBeanInstance.beanBindAttemptInterval) | 10 000        | The intervall (in milliseconds) between consecutive bind attemps when a ServicBeanInstance is in UNBOUND state
 SERVICE_REGISTRY_URI  (AstrixServiceRegistry.serviceUri)      | (none) | ServiceUri used to bind to the service-registry.
 DYNAMIC_CONFIG_FACTORY (com.avanza.astrix.context.AstrixDynamicConfigFactory) | (none) | 
 
