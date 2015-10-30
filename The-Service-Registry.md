@@ -21,7 +21,7 @@ interface OrderValidation {
 ```
 
 ### Configuring what service registry to use
-Astrix uses the configuration to discovery a provider for the service registry, see [Configuring Astrix](Configuring-Astrix) for more information. <p>
+Astrix uses configuration to discover a provider for the Service Registry, see [Configuring Astrix](Configuring-Astrix) for more information. <p>
 
 
 ### Deploying a Service Registry
