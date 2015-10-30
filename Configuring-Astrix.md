@@ -33,19 +33,21 @@ public AstrixFrameworkBean astrix() {
 ```
 
 ### META-INF/astrix/settings.properties
-Astrix allows overriding the default-values used for each settings by adding a `META-INF/astrix/settings.properties` to the classpath. At avanza we
+Astrix allows overriding the default values used for each setting by adding a `META-INF/astrix/settings.properties` to the classpath. At Avanza we
 share a single "corporate" jar containing the default settings used at Avanza:
 
 #### Example content of META-INF/astrix/settings.properties 
 ```properties
-# Custom ConfigurationFactory used to add custom config sources
+# Custom ConfigurationFactory used to add custom configuration sources
 com.avanza.astrix.context.AstrixDynamicConfigFactory=se.avanzabank.aza.astrix.integration.AvanzaAstrixDynamicConfigFactory
-# Always scan se.avanzabank,nu.placera
+# Always scan se.avanzabank,nu.placera for @AstrixApiProvider annotated classes
 AstrixApiProviderScanner.basePackage=se.avanzabank,nu.placera
 ```
 
 
 ### List of AstrixSettings
+This is a list of the most common `AstrixSettings`
+
 AstrixSetting  | Default Value | Description 
 :------------------------------------------ | -------------:|:--------------
 BEAN_BIND_ATTEMPT_INTERVAL                  | 10 000        | The intervall (in milliseconds) between consecutive bind attemps when a ServicBeanInstance is in UNBOUND state
