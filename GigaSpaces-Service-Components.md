@@ -1,6 +1,6 @@
 > This is a very early draft
 
-The `astrix-gs` modules inclused three `ServiceComponent` implementations that can be used to provide services implemented using `GigaSpaces`. 
+The `astrix-gs` module includes three `ServiceComponent` implementations that can be used to provide services implemented using [GigaSpaces](http://www.gigaspaces.com/developers). 
 
 * GS
 * GS_REMOTING
