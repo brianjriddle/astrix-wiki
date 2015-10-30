@@ -24,7 +24,7 @@ interface OrderValidation {
 ### Running a Service Registry
 Astrix ships with an implementation of a service registry based on GigaSpaces. This implementation is located in the `astrix-service-registry-pu` module.
 
-The module is not packaged as a [processing-unit](http://docs.gigaspaces.com/xap101/the-processing-unit-structure-and-configuration.html), so in order to deploy it you have to package it yourself:
+The module is not packaged as a [processing-unit](http://docs.gigaspaces.com/xap101/the-processing-unit-structure-and-configuration.html), so in order to deploy it you have to package it as a processing-unit yourself:
 
 1. Create a module for your service-registry
 2. Add a dependency to `astrix-service-registry-pu3
