@@ -28,10 +28,10 @@ The module is not packaged as a [processing-unit](http://docs.gigaspaces.com/xap
 
 1. Create a module for your service-registry
 2. Add a dependency to `astrix-service-registry-pu`
-3. Inside the module create a META-INF/services/pu.xml with the content below:
-4. Package this application as a processing-unit and you should be able to deploy it.
+3. Inside the module create a `/META-INF/services/pu.xml` with the content below:
+4. Package this module as a processing-unit and you should be able to deploy it.
 
-### Content of META-INF/services/pu.xml
+### Content of /META-INF/services/pu.xml
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
