@@ -55,7 +55,7 @@ AstrixApiProviderScanner.basePackage=se.avanzabank,nu.placera
 
 
 ### List of AstrixSettings
-This is a list of the most common `AstrixSettings`
+This is a list of the most common [AstrixSettings](http://avanzabank.github.io/astrix/com/avanza/astrix/beans/core/AstrixSettings.html)
 
 AstrixSetting (configuration property name)  | Default Value | Description 
 :------------------------------------------ | -------------:|:--------------
