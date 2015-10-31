@@ -11,8 +11,10 @@ Fully working code examples referred to in the documentation are located in the 
 
 1. [AstrixContext: The IOC Container](The-IOC-Container)
 2. [Service Discovery and Service Binding](Service-Discovery-and-Service-Binding)
-4. [Configuring Astrix](Configuring-Astrix)
-5. [Extending Astrix](Astrix-Plugins)
-6. [Bean Fault Tolerance](Bean-Fault-Tolerance)
+3. [The Service Registry (draft)](The-Service-Registry)
+4. [Configuring Astrix (draft)](Configuring-Astrix)
+5. [Extending Astrix (draft)](Astrix-Plugins)
+6. [Bean Fault Tolerance (draft)](Bean-Fault-Tolerance)
+7. [GigaSpaces ServiceComponent's (draft)](Bean-Fault-Tolerance)
 
  
