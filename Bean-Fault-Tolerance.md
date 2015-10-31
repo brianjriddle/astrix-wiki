@@ -12,7 +12,7 @@ interface HystrixCommandNamingStrategy {
 	String getGroupKeyName(PublishedAstrixBean<?> beanDefinition);
 }
 ```
-Astrix applies two different types of protection using either `HystrixCommand` or `HystrixObservableCommand` depending on the return type of the invoked Astrix bean method. Most invocations (so called "synchronous" invocations) will be protected by a regular HystrixCommand using a thread-pool for isolation. Astrix may also handle a service invocations as "reactive", see below for definition. For reactive service invocations Astrix uses a HystrixObservableCommand and semaphores for protection.
+Astrix applies two different types of protection using either `HystrixCommand` or `HystrixObservableCommand` depending on the return type of the invoked Astrix bean method. Most invocations (so called "synchronous" invocations) will be protected by a regular `HystrixCommand` using a thread-pool for isolation. Astrix may also handle a service invocations as "reactive", see below for definition. For reactive service invocations Astrix uses a `HystrixObservableCommand` and semaphores for protection.
 
 ### Reactive invocations
 Astrix may treat a bean invocation as "reactive" depending on the return type of the invoked method. All methods returning a `java.util.concurrent.CompletableFuture`, `rx.Observable` and `com.gigaspaces.async.AsyncFuture` are treated as reactive by default. Its possible to extends the reactive type handling to include more types by implementing a `ReactiveTypeHandlerPlugin`.
