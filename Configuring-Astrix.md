@@ -22,7 +22,7 @@ The `AstrixConfigurer.setConfig` property allows passing an instance of `Dynamic
 
 ##### Example
 ```java
-DynamicConfig customConfig = DynamicConfig.create(new ArchauisConfigSource());
+DynamicConfig customConfig = DynamicConfig.create(new ArchaiusConfigSource());
 astrixConfigurer.setConfig(customConfig);
 ```
 
@@ -33,7 +33,7 @@ The other way to define your custom configuration sources is to implement `Astri
 ```java
 public class CustomConfigFactory implements AstrixDynamicConfigFactory {
 	public DynamicConfig create() {
-		return DynamicConfig.create(new ArchauisConfigSource());
+		return DynamicConfig.create(new ArchaiusConfigSource());
 	}
 }
 ```
