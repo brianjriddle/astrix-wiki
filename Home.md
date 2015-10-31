@@ -15,6 +15,6 @@ Fully working code examples referred to in the documentation are located in the 
 4. [Configuring Astrix (draft)](Configuring-Astrix)
 5. [Extending Astrix (draft)](Astrix-Plugins)
 6. [Bean Fault Tolerance (draft)](Bean-Fault-Tolerance)
-7. [GigaSpaces ServiceComponent's (draft)](Bean-Fault-Tolerance)
+7. [GigaSpaces ServiceComponent's (draft)](Configuring-Astrix)
 
  
