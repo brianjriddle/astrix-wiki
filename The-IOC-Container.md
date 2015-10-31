@@ -17,7 +17,7 @@ At runtime, every object that is part of an api managed by Astrix is called an `
 A `Library` consist of a number of public interfaces/classes and associated implementations. Astrix protects a library provider from the consumers of the library by allowing the consumer to "program against interfaces" without ever needing to now what implements the given interfaces, or how the classes that implement the interfaces are assembled.
 
 ### A Simple Library 
-The code for this part can be found [here](../../tree/master/doc-snippets/src/main/java/tutorial/p1). 
+The code for this part can be found [here](../tree/master/doc-snippets/src/main/java/tutorial/p1). 
 
 The first step in creating a library is to define the public api. This example only contains a LunchSuggester interface:
 
