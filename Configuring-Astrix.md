@@ -9,8 +9,7 @@ Astrix ships with a small standalone configuration framework called [DynamicConf
 4. `META-INF/astrix/settings.properties`
 5. Default values
 
-Astrix will use the first value found for a given setting. Hence the Custom ConfigurationSource's takes precedence over the Programatic configuration and so on. The custom configuration is plugable by implementing the `ConfigSource` and/or `DynamicConfigSource` spi. By default Astrix will not use any external configuration. The `settings.properties` provides a convenient way to override the default values provided by Astrix. It could be used to set corporate wide default-values by sharing a single `settings.properties` file. For instance it could be used to say that `"com.mycorp"` should be scanned for api-providers, avoiding the need to dupplicate such configurations on every instance of AstrixConfigurer throughout an enterprise.
-
+Astrix will use the first value found for a given setting. Hence the Custom ConfigurationSource's takes precedence over system properties, which takes precedence over programmatic configuration and so on. The custom configuration is plugable by implementing the `ConfigSource` and/or `DynamicConfigSource` spi. By default Astrix will not use any external configuration.
 
 ### Configuration Bootstrap
 Astrix uses configuration source 2 - 5 in the table above to bootstrap the configuration. What Astrix does is that it looks for a  `com.avanza.astrix.context.AstrixDynamicConfigFactory` property in these configuration sources. If found, it instantiates the defined `AstrixDynamicConfigFactory` and uses it to create an instance of DynamicConfig which contains all custom configuration sources. All configuration sources used by the DynamicConfig instance returned by the `AstrixDynamicConfigFactory` will take precedence over configuration source 2 - 5. The effective configuration hierarchy used by the given AstrixContext will therefore look as follows:
@@ -42,8 +41,9 @@ public AstrixFrameworkBean astrix() {
 ```
 
 ### META-INF/astrix/settings.properties
-Astrix allows overriding the default values used for each setting by adding a `META-INF/astrix/settings.properties` to the classpath. At Avanza we
-share a single "corporate" jar containing the default settings used at Avanza:
+The `settings.properties` provides a convenient way to override the default values provided by Astrix by adding a `META-INF/astrix/settings.properties` file to the classpath. It could be used to set corporate wide default values by sharing a jar containing `settings.properties` file. For instance it could be used to say that `"com.mycorp"` should be scanned for api-providers, avoiding the need to duplicate such configuration on every instance of AstrixConfigurer throughout an enterprise. 
+
+At Avanza we share a single "corporate" jar containing the default settings used at Avanza:
 
 #### Example content of META-INF/astrix/settings.properties 
 ```properties
