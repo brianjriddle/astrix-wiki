@@ -21,10 +21,10 @@ Astrix uses configuration source 2 - 5 in the table above to bootstrap the confi
 5. Default values
 
 ### System Properties
-Astrix allows overriding/defining any setting using system properties. For instance you can define what service registry to use as follows:
+Astrix allows overriding/defining any setting using system properties. For instance you can define what service registry to use as follows from the command line:
 
 ```bash
-> java -jar my-service -DAstrixServiceRegistry.serviceUri=gs-remoting:jini://*/*/service-registry-space?groups=my-group
+> java -jar my-service.jar -DAstrixServiceRegistry.serviceUri=gs-remoting:jini://*/*/service-registry-space?groups=my-group
 ```
 
 
