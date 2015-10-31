@@ -1,7 +1,7 @@
 > This is a very early draft
 
 ### Configuration
-Astrix ships with a small standalone configuration framework called [DynamicConfig](https://github.com/AvanzaBank/astrix/tree/master/astrix-config). A configuration property is resolved in the following order:
+Astrix ships with a small standalone configuration framework called [DynamicConfig](https://github.com/AvanzaBank/astrix/tree/master/astrix-config). Every instance of `AstrixContext` has an associated instance of `DynamicConfig` which is used to read configuration at runtime. A configuration property is resolved in the following order:
 
 1. Custom ConfigurationSource's
 2. System properties
