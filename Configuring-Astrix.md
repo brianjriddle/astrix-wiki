@@ -13,7 +13,7 @@ Astrix will use the first value found for a given setting. Hence the Custom Conf
 
 
 ### Configuration Bootstrap
-Astrix uses configuration source 2. - 5. in the table above to bootstrap the configuration. What Astrix does is that it looks for a  `com.avanza.astrix.context.AstrixDynamicConfigFactory` property in these configuration sources. If found, it instantiates the defined `AstrixDynamicConfigFactory` and uses it to create an instance of DynamicConfig which contains all custom configuration sources. All configuration sources used by the DynamicConfig instance returned by the `AstrixDynamicConfigFactory` will take precedence over configuration source 2 - 5. The effective configuration hierarchy used by the given AstrixContext will therefore look as follows:
+Astrix uses configuration source 2 - 5 in the table above to bootstrap the configuration. What Astrix does is that it looks for a  `com.avanza.astrix.context.AstrixDynamicConfigFactory` property in these configuration sources. If found, it instantiates the defined `AstrixDynamicConfigFactory` and uses it to create an instance of DynamicConfig which contains all custom configuration sources. All configuration sources used by the DynamicConfig instance returned by the `AstrixDynamicConfigFactory` will take precedence over configuration source 2 - 5. The effective configuration hierarchy used by the given AstrixContext will therefore look as follows:
 
 1. Custom ConfigurationSource's used by the `DynamicConfig` instance returned by `AstrixDynamicConfigFactory` (if present) 
 2. System properties
