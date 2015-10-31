@@ -160,4 +160,4 @@ public class AstrixBeanStateManagementTest {
 7. The `LunchSuggester` library is invoked, which in turn invokes the `LunchRestaurantFinder` service which will be `BOUND` at this time.
 
 
-[Next: Part 3 - The Service Registry](part3.md)  
+[Next: Part 3 - The Service Registry](The-Service-Registry)  
