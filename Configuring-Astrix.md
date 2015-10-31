@@ -53,20 +53,20 @@ Astrix allows overriding/defining any setting using system properties. For insta
 
 
 ### Programmatic configuration
-All settings may be set programmatically directly on a AstrixConfigurer/AstrixFramworkBean:
+All settings may be set programmatically on a AstrixConfigurer/AstrixFramworkBean:
 
 ##### Example
 ```java 
 @Bean
 public AstrixFrameworkBean astrix() {
 	AstrixFrameworkBean astrix = new AstrixFrameworkBean();
-	astrix.set(AstrixSettings.SERVICE_REGISTRY_URI, "gs-remoting:jini://*/*/service-registry-space?groups=my-group);
+	astrix.set(AstrixSettings.SERVICE_REGISTRY_URI, "gs-remoting:jini://*/*/service-registry-space?groups=my-group");
 	return astrix;
 }
 ```
 
 ### META-INF/astrix/settings.properties
-The `settings.properties` provides a convenient way to override the default values provided by Astrix by adding a `META-INF/astrix/settings.properties` file to the classpath. It could be used to set corporate wide default values by sharing a jar containing `settings.properties` file. For instance it could be used to say that `"com.mycorp"` should be scanned for api-providers, avoiding the need to duplicate such configuration on every instance of AstrixConfigurer throughout an enterprise. 
+The `settings.properties` file provides a convenient way to override the default value for each setting in Astrix by adding a `META-INF/astrix/settings.properties` file to the classpath. It could be used to set corporate wide default values by sharing a jar containing a `settings.properties` file. For instance it could be used to say that `"com.mycorp"` should be scanned for api-providers, avoiding the need to duplicate such configuration on every instance of AstrixConfigurer throughout an enterprise. 
 
 At Avanza we share a single "corporate" jar containing the default settings used at Avanza:
 
