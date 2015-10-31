@@ -46,6 +46,7 @@ com.avanza.astrix.context.AstrixDynamicConfigFactory=com.mycorp.astrix.ext.Custo
 ### System Properties
 Astrix allows overriding/defining any setting using system properties. For instance you can define what service registry to use from the command line:
 
+##### Example
 ```bash
 > java -jar my-service.jar -DAstrixServiceRegistry.serviceUri=gs-remoting:jini://*/*/service-registry-space?groups=my-group
 ```
@@ -54,6 +55,7 @@ Astrix allows overriding/defining any setting using system properties. For insta
 ### Programmatic configuration
 All settings may be set programmatically directly on a AstrixConfigurer/AstrixFramworkBean:
 
+##### Example
 ```java 
 @Bean
 public AstrixFrameworkBean astrix() {
@@ -68,7 +70,7 @@ The `settings.properties` provides a convenient way to override the default valu
 
 At Avanza we share a single "corporate" jar containing the default settings used at Avanza:
 
-#### Example content of META-INF/astrix/settings.properties 
+##### Example content of META-INF/astrix/settings.properties 
 ```properties
 # Custom ConfigurationFactory used to add custom configuration sources
 com.avanza.astrix.context.AstrixDynamicConfigFactory=se.avanzabank.aza.astrix.integration.AvanzaAstrixDynamicConfigFactory
