@@ -4,7 +4,7 @@ Astrix includes a fault-tolerance layer implemented on top of [Hystrix](https://
 
 ![Design FaultToleranceProxy](images/bean-fault-tolerance-design.png)
 
-The mapping between an Astrix bean, and the name of the `HystrixCommand` used to protect an invocation on the given Astrix bean, is resolved using a `HystrixCommandNamingStrategy`. The `HystrixCommandNamingStrategy` allows users of the framework to implement whatever `HystrixCommand` naming scheme they prefer for their Astrix beans, see "Extending Astrix" for information about how to apply a custom strategy.
+The mapping between an Astrix bean, and the name of the `HystrixCommand` used to protect an invocation on the given Astrix bean, is resolved using a `HystrixCommandNamingStrategy`. The `HystrixCommandNamingStrategy` allows users of the framework to implement whatever `HystrixCommand` naming scheme they prefer for their Astrix beans, see [Extending Astrix](Extending-Astrix) for information about how to apply a custom strategy.
 
 ```java
 interface HystrixCommandNamingStrategy {
