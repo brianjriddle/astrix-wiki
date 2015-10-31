@@ -1,26 +1,47 @@
 > This is a draft
 
 ## Configuration
-Astrix ships with a small standalone configuration framework called [DynamicConfig](https://github.com/AvanzaBank/astrix/tree/master/astrix-config). Every instance of `AstrixContext` has an associated instance of `DynamicConfig` which is used to read configuration at runtime. A configuration property is resolved in the following order:
+Astrix ships with a small standalone configuration framework called [DynamicConfig](https://github.com/AvanzaBank/astrix/tree/master/astrix-config). Each `AstrixContext` has an associated instance of `DynamicConfig` which is used to read configuration properties at runtime. A configuration property is resolved in the following order:
 
-1. Custom ConfigurationSource's
+1. Custom [ConfigSource](http://avanzabank.github.io/astrix/com/avanza/astrix/config/ConfigSource.html)'s
 2. System properties
 3. Programmatic configuration set on `AstrixConfigurer`
 4. `META-INF/astrix/settings.properties`
 5. Default values
 
-Astrix uses the first value found for a given setting. Hence the Custom ConfigurationSource's takes precedence over system properties, which takes precedence over programmatic configuration and so on. The custom configuration is plugable by implementing the `ConfigSource` and/or `DynamicConfigSource` spi. By default Astrix will not use any external configuration.
+Astrix uses the first value found for a given [Setting](http://avanzabank.github.io/astrix/com/avanza/astrix/config/Setting.html). Hence the custom configuration sources takes precedence over system properties, which takes precedence over programmatic configuration and so on. The custom configuration is plugable by implementing the `ConfigSource` and/or `DynamicConfigSource` spi. By default Astrix will not use any external configuration.
 
-### Configuration Bootstrap
-Astrix uses configuration source 2 - 5 in the table above to bootstrap the configuration. What Astrix does is that it looks for a  `com.avanza.astrix.context.AstrixDynamicConfigFactory` property in these configuration sources. If found, it instantiates the defined `AstrixDynamicConfigFactory` and uses it to create an instance of DynamicConfig which contains all custom configuration sources. All configuration sources used by the DynamicConfig instance returned by the `AstrixDynamicConfigFactory` will take precedence over configuration source 2 - 5. The effective configuration hierarchy used by the given AstrixContext will therefore look as follows:
+### Custom Configuration Sources
+By default Astrix only reads the well-known configuration sources (2 - 5 above). You can get an `AstrixContext` to read your custom configuration sources by passing an instance of `DynamicConfig` to the `AstrixContext`. There are two ways to do this:
 
-1. Custom ConfigurationSource's used by the `DynamicConfig` instance returned by `AstrixDynamicConfigFactory` (if present) 
-2. System properties
-3. Programmatic configuration set on `AstrixConfigurer`
-4. `META-INF/astrix/settings.properties`
-5. Default values
+* Set the instance using `AstrixConfigurer.setConfig`
+* Define a `com.avanza.astrix.context.AstrixDynamicConfigFactory` property in any of the well-known configuration sources
 
-## Configuration Sources
+#### AstrixConfigurer.setConfig
+The `AstrixConfigurer.setConfig` property allows passing an instance of `DynamicConfig` to the `AstrixContext`. Any property defined in this `DynamicConfig` instance will take precedence over all of the well-known configuration sources above.
+
+##### Example
+```java
+DynamicConfig customConfig = DynamicConfig.create(new ArchauisConfigSource());
+astrixConfigurer.setConfig(customConfig);
+```
+
+#### AstrixDynamicConfigFactory
+The other way to define your custom configuration sources is to implement `AstrixDynamicConfigFactory`. Astrix queries all well-known configuration sources for a `"com.avanza.astrix.context.AstrixDynamicConfigFactory"` property. If that property is defined, Astrix creates an instance of the defined factory and uses it to create a DynamicConfig instance with the custom configuration sources. Note that a `AstrixDynamicConfigFactory` will be totally ignored if a `DynamicConfig` instance is set using `AstrixConfigurer.setConfig` as described above.
+
+##### Example
+```java
+public class CustomConfigFactory implements AstrixDynamicConfigFactory {
+	public DynamicConfig create() {
+		return DynamicConfig.create(new ArchauisConfigSource());
+	}
+}
+```
+
+```properties
+# content of META-INF/astrix/settings.properties
+com.avanza.astrix.context.AstrixDynamicConfigFactory=com.mycorp.astrix.ext.CustomConfigFactory
+```
 
 ### System Properties
 Astrix allows overriding/defining any setting using system properties. For instance you can define what service registry to use from the command line:
