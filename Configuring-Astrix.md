@@ -1,4 +1,4 @@
-> This is a very early draft
+> This is a draft
 
 ### Configuration
 Astrix ships with a small standalone configuration framework called [DynamicConfig](https://github.com/AvanzaBank/astrix/tree/master/astrix-config). Every instance of `AstrixContext` has an associated instance of `DynamicConfig` which is used to read configuration at runtime. A configuration property is resolved in the following order:
