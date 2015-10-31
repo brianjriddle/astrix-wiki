@@ -1,6 +1,6 @@
 > This is a draft
 
-### Configuration
+## Configuration
 Astrix ships with a small standalone configuration framework called [DynamicConfig](https://github.com/AvanzaBank/astrix/tree/master/astrix-config). Every instance of `AstrixContext` has an associated instance of `DynamicConfig` which is used to read configuration at runtime. A configuration property is resolved in the following order:
 
 1. Custom ConfigurationSource's
@@ -19,6 +19,8 @@ Astrix uses configuration source 2 - 5 in the table above to bootstrap the confi
 3. Programmatic configuration set on `AstrixConfigurer`
 4. `META-INF/astrix/settings.properties`
 5. Default values
+
+## Configuration Sources
 
 ### System Properties
 Astrix allows overriding/defining any setting using system properties. For instance you can define what service registry to use from the command line:
@@ -53,6 +55,8 @@ com.avanza.astrix.context.AstrixDynamicConfigFactory=se.avanzabank.aza.astrix.in
 AstrixApiProviderScanner.basePackage=se.avanzabank,nu.placera
 ```
 
+## Settings
+Astrix uses two types of settings. The first one is `AstrixSettings` which are global to a `AstrixContext`, and the other one is `AstrixBeanSettings` which applies to individual Astrix beans. 
 
 ### List of AstrixSettings
 This is a list of the most common [AstrixSettings](http://avanzabank.github.io/astrix/com/avanza/astrix/beans/core/AstrixSettings.html)
