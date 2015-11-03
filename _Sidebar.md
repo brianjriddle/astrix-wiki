@@ -7,4 +7,4 @@
 * [Configuring Astrix (draft)](Configuring-Astrix)
 * [Extending Astrix (draft)](Astrix-Plugins)
 * [Bean Fault Tolerance (draft)](Bean-Fault-Tolerance)
-* [GigaSpaces ServiceComponent's (draft)](Configuring-Astrix)
+* [GigaSpaces ServiceComponent's (draft)](GigaSpaces-Service-Components)
