@@ -79,7 +79,7 @@ AstrixApiProviderScanner.basePackage=se.avanzabank,nu.placera
 ```
 
 ## Settings
-Astrix uses two types of settings. The first one is `AstrixSettings` which are global to a `AstrixContext`, and the other one is `AstrixBeanSettings` which applies to individual Astrix beans. 
+The `DynamicConfig` instance associated with a `AstrixContext` is used to read _settings_ at runtime. Astrix distinguishes between two types of settings. The first one are `AstrixSettings` which are global to a `AstrixContext`, and the other one are `AstrixBeanSettings` which applies to individual Astrix beans. 
 
 ### List of AstrixSettings
 This is a list of the most common [AstrixSettings](http://avanzabank.github.io/astrix/com/avanza/astrix/beans/core/AstrixSettings.html)
