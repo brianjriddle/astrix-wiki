@@ -2,7 +2,7 @@
 
 Astrix includes a fault-tolerance layer implemented on top of [Hystrix](https://github.com/Netflix/Hystrix) which can be used to protect invocations to an Astrix bean with fault isolation. The fault tolerance layer is activated by adding the `astrix-fault-tolerance` module to the classpath. When the `astrix-fault-tolerance` module is present, then all invocations to a service bean will be protected by the fault-tolerance layer without further configuration, and library beans might be protected by explicitly annotating the bean definition with `@AstrixFaultToleranceProxy`.
 
-![Design FaultToleranceProxy](images/bean-fault-tolerance-design.png)
+![Design FaultToleranceProxy](images/bean-fault-tolerance-design-1.png)
 
 The mapping between an Astrix bean, and the name of the `HystrixCommand` used to protect an invocation on the given Astrix bean, is resolved using a `HystrixCommandNamingStrategy`. The `HystrixCommandNamingStrategy` allows users of the framework to implement whatever `HystrixCommand` naming scheme they prefer for their Astrix beans, see [Extending Astrix](Astrix-Plugins) for information about how to apply a custom strategy.
 
